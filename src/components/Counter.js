@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import {CounterContext} from "../App";
 
 export function Counter() {
-    const {count} = useContext(CounterContext);
+    //const {count} = useContext(CounterContext);
     const [num, setNum] = useState(5)
 
     function add() {

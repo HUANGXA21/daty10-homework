@@ -4,8 +4,8 @@ import {CounterGroupGenerator} from "./CounterGroupGenerator";
 import {CounterContext} from "../App";
 
 export function MultipleCounter() {
-    const {count} = useContext(CounterContext);
-    const [countSize, setCounterSize] = useState(count);
+    const {state,dispatch} = useContext(CounterContext);
+    const [countSize, setCounterSize] = useState(state.count);
     return <div>
         <CounterGroupGenerator counterSize={countSize} onUpdateSize={setCounterSize}/>
         <CounterGroup counterSize={countSize}/>
