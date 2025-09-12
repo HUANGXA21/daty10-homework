@@ -5,6 +5,6 @@
     margin-top: 10px;
     text-align: center;
 }
-.todo-item.todo-done{
+.todo-item .todo-done{
     text-decoration: line-through;
 }
