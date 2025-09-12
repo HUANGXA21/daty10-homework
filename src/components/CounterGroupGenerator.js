@@ -1,14 +1,23 @@
+import {useContext} from "react";
+import {CounterContext} from "../App";
+
 export function CounterGroupGenerator(props) {
+    const {state, dispatch} = useContext(CounterContext);
 
     function updateSize(event) {
         let number = parseInt(event.target.value);
         if (!Number.isNaN(number)) {
-            props.onUpdateSize(number);
+            dispatch({
+                type: "UPDATE_SIZE",
+                payload: {number: number}
+            })
         }
     }
 
     function reset() {
-        props.onUpdateSize(0);
+        dispatch({
+            type: "RESET"
+        })
     }
 
     return <>

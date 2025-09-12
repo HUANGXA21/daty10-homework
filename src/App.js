@@ -3,7 +3,15 @@ import {MultipleCounter} from "./components/MultipleCounter";
 import {createContext, useReducer} from "react";
 
 function counterReducer(state, action) {
-    return state;
+    switch (action.type) {
+        case "UPDATE_SIZE":
+            return {count: action.payload.number}
+        case "RESET":
+            return {count: 0}
+        default:
+            return state;
+    }
+
 }
 
 
