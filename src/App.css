@@ -39,3 +39,10 @@
 .add-todo button:hover {
     background-color: #0056b3;
 }
+
+.todo-hint {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+    font-style: italic;
+}
