@@ -1,15 +1,15 @@
-import { useState, useContext } from "react";
-import { TodoContext } from "../contexts/TodoContext";
+import {useState, useContext} from "react";
+import {TodoContext} from "../contexts/TodoContext";
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
-    const { dispatch } = useContext(TodoContext);
+    const {dispatch} = useContext(TodoContext);
 
     const handleAdd = () => {
         if (inputText.trim()) {
             dispatch({
                 type: "ADD_TODO",
-                payload: { text: inputText }
+                payload: {text: inputText}
             });
             setInputText(''); // 清空输入框
         }
