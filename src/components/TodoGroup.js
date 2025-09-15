@@ -13,7 +13,6 @@ export function TodoGroup() {
         });
     };
     return <div>
-        {<h2 className={"todo-h2"}>Todo List</h2>}
         {state.length === 0 && (
             <p className="todo-hint">Add the things you need to do today...</p>
         )}
