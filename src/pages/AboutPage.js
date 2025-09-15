@@ -1,5 +1,5 @@
 export function AboutPage() {
-    return <div>
+    return <div className={"about"}>
         <h1>About</h1>
     </div>;
 }

@@ -4,7 +4,7 @@ export function DefaultLayout() {
     return <div>
         <header>
             <nav>
-                <ul>
+                <ul className="nav-list">
                     <li><NavLink to={"/"}>Home</NavLink></li>
                     <li><NavLink to={"/todos/done"}>Done</NavLink></li>
                     <li><NavLink to={"/about"}>About</NavLink></li>

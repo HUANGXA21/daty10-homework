@@ -5,7 +5,7 @@ import {TodoItem} from "../components/TodoItem";
 export function TodoDonePage() {
     const {state, dispatch} = useContext(TodoContext);
     const doneTodos = state.filter(todo => todo.done === true);
-    return <div>
+    return <div className={"todos-done"}>
         <h1>Todo Done</h1>
         {doneTodos.length === 0 ? (
             <p>No completed todos yet</p>
