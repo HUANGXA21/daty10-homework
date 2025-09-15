@@ -1,6 +1,7 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {useTodoService} from "../useTodoService";
+import { Button, Flex } from 'antd';
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
@@ -21,7 +22,7 @@ export function AddTodo() {
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="输入新的todo..."
             />
-            <button onClick={handleAdd}>add</button>
+            <Button onClick={handleAdd}>add</Button>
         </div>
     );
 }
