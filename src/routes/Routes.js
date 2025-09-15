@@ -3,6 +3,7 @@ import {DefaultLayout} from "../layouts/DefaultLayout";
 import {HomePage} from "../pages/HomePage";
 import {TodoDetailPage} from "../pages/TodoDetailPage";
 import {TodoDonePage} from "./TodoDonePage";
+import {AboutPage} from "../pages/AboutPage";
 
 export const routes = createBrowserRouter([{
     path: "/",
@@ -19,6 +20,10 @@ export const routes = createBrowserRouter([{
         {
             path: "todos/done",
             element: <TodoDonePage/>
+        },
+        {
+            path:"about",
+            element:<AboutPage/>
         }
     ]
 }])
