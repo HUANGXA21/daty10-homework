@@ -4,8 +4,12 @@ import {TodoContext} from "./contexts/TodoContext";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {useReducer} from "react";
 import {HomePage} from "./pages/HomePage";
+import {TodoDetailPage} from "./pages/TodoDetailPage";
 
-export const initState = [];
+export const initState = [
+    {id: 1, text: "the first todo", done: false},
+    {id: 2, text: "the second todo", done: false},
+];
 
 const routes = createBrowserRouter([{
     path: "/",
@@ -14,6 +18,10 @@ const routes = createBrowserRouter([{
         {
             path: "/",
             element: <HomePage/>
+        },
+        {
+            path:"todos/:id",
+            element:<TodoDetailPage/>
         }
     ]
 }])
