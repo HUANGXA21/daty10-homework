@@ -1,11 +1,11 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {createTodo} from "../request/createTodo";
-
+import {useTodoService} from "../useTodoService";
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
     const {dispatch} = useContext(TodoContext);
+    const {createTodo} = useTodoService()
     const handleAdd = () => {
         if (inputText.trim()) {
             createTodo(inputText).then(todo => dispatch({type: "ADD_TODO", payload: todo}))

@@ -4,12 +4,13 @@ import {TodoContext} from "./contexts/TodoContext";
 import {RouterProvider} from "react-router";
 import {useEffect, useReducer} from "react";
 import {routes} from "./routes/Routes";
-import {getTodo} from "./request/getTodo";
+import {useTodoService} from "./useTodoService";
 
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
+    const {getTodo} = useTodoService()
     useEffect(()=>{
-        getTodo.then(todos=>dispatch({type:"LOAD_TODOS",payload:todos}))
+        getTodo().then(todos=>dispatch({type:"LOAD_TODOS",payload:todos}))
     },[dispatch])
     return (
         <div>

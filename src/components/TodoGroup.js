@@ -3,11 +3,12 @@ import {TodoItem} from "./TodoItem";
 
 import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
-import {deleteTodo} from "../request/deleteTodo";
+import {useTodoService} from "../useTodoService";
 
 export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
     const navigate = useNavigate();
+    const {deleteTodo} = useTodoService();
     const handleDelete = (id) => {
         deleteTodo(id).then(todo => dispatch({type: "DELETE_TODO", payload: {id: id}}))
     };

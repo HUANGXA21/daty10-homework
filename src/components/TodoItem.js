@@ -1,11 +1,11 @@
 import {useContext} from "react";
 
 import {TodoContext} from "../contexts/TodoContext";
-import {updateTodo} from "../request/updateTodo";
+import {useTodoService} from "../useTodoService";
 
 export function TodoItem(props) {
     const {state, dispatch} = useContext(TodoContext)
-
+    const {updateTodo} = useTodoService()
     function makeAsDone() {
         updateTodo(props.todo)
             .then(todo => dispatch({type: "UPDATE_TODO", payload: {id: props.todo.id}}))
