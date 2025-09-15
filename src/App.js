@@ -2,7 +2,7 @@ import "./App.css"
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoContext} from "./contexts/TodoContext";
 import {TodoList} from "./components/TodoList";
-import {createBrowserRouter,Outlet, NavLink, RouterProvider} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 import {useReducer} from "react";
 
 export const initState = [];
@@ -13,10 +13,11 @@ const routes = createBrowserRouter([{
     children: [
         {
             path: "/",
-            element: <TodoList />
+            element: <TodoList/>
         }
     ]
 }])
+
 
 function DefaultLayout() {
     return <div>
