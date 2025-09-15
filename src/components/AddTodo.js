@@ -1,11 +1,10 @@
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {mockApi} from "../apis/mockApi";
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
     const {dispatch} = useContext(TodoContext);
-
     const handleAdd = () => {
         if (inputText.trim()) {
             mockApi.post("/todos", {text: inputText.trim(),done:false})
