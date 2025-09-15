@@ -9,7 +9,7 @@ export function DefaultLayout() {
                 </ul>
             </nav>
             <main>
-                <Outlet/>
+            <Outlet/>
             </main>
         </header>
     </div>
