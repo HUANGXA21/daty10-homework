@@ -1,15 +1,14 @@
-import {useState, useContext, useEffect} from "react";
+import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {mockApi} from "../apis/mockApi";
+import {createTodo} from "../request/createTodo";
+
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
     const {dispatch} = useContext(TodoContext);
     const handleAdd = () => {
         if (inputText.trim()) {
-            mockApi.post("/todos", {text: inputText.trim(),done:false})
-                .then(res=>res.data)
-                .then(todo=>dispatch({type: "ADD_TODO",payload:todo}))
+            createTodo(inputText).then(todo => dispatch({type: "ADD_TODO", payload: todo}))
             setInputText(''); // 清空输入框
         }
     };
