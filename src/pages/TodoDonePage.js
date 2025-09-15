@@ -10,7 +10,7 @@ export function TodoDonePage() {
         {doneTodos.length === 0 ? (
             <p>No completed todos yet</p>
         ) : (
-            <ul>
+            <ul className={"todo-list"}>
                 {doneTodos.map((todo, index) => (
                     <TodoItem todo={todo} index={todo.id}></TodoItem>
                 ))}
