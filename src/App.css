@@ -1,84 +1,18 @@
-.todo-item {
-    max-width: 800px;
-    width: 100%;
-    height: 30px;
-    border: 1px solid black;
-    margin-top: 10px;
-    text-align: center;
+/* 基础样式重置与全局设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.todo-item .todo-done {
-    text-decoration: line-through;
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
 }
 
-.todo-item-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.todo-item-container button {
-    margin-left: 20px;
-    margin-top: 10px;
-    width: 50px;
-    height: 30px;
-}
-
-.add-todo {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-
-.add-todo input {
-    width: 320px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-
-.add-todo button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.add-todo button:hover {
-    background-color: #0056b3;
-}
-
-.todo-hint {
-    text-align: center;
-    color: #666;
-    margin: 20px 0;
-    font-style: italic;
-}
-
-.todo-h2 {
-    text-align: center;
-}
-
-.todos-done {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.todos-done.todo-list {
-    text-align: center;
-}
-
-.about {
-    text-align: center;
-}
-
+/* 布局样式 */
 .layout-container {
     min-height: 100vh;
 }
@@ -86,32 +20,288 @@
 .header-container {
     background: #fff;
     padding: 0 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 .nav-menu {
-    border-bottom: none;
+    border-bottom: none !important;
     height: 100%;
 }
+
 .menu-item {
     margin: 0 12px;
+    transition: all 0.3s ease;
 }
+
+.menu-item:hover {
+    background-color: #f0f2f5 !important;
+}
+
 .nav-link {
     text-decoration: none;
     color: inherit;
     display: block;
     padding: 8px 0;
+    transition: color 0.3s ease;
 }
 
 .nav-link.active {
-    color: #1890ff;
     font-weight: 500;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
 }
 
 .content-container {
-    margin: 24px 16px;
-    padding: 24px;
+    margin: 24px auto;
+    padding: 32px;
     background: #fff;
-    border-radius: 2px;
+    border-radius: 8px;
     min-height: calc(100vh - 136px);
+    max-width: 1000px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* 页面标题样式 */
+h1, h2 {
+    color: #1f2329;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 28px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+}
+
+h2.todo-h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 0 32px;
+}
+
+/* Todo 项目样式 */
+.todo-item {
+    max-width: 800px;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #e5e6eb;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+.todo-item:hover {
+    border-color: #c9cdD4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item .todo-done {
+    text-decoration: line-through;
+    color: #86909c;
+}
+
+.todo-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    transition: background-color 0.2s ease;
+}
+
+.todo-item-container:hover {
+    background-color: #fafbfc;
+    border-radius: 8px;
+}
+
+/* 按钮样式优化 */
+.todo-item-container button,
+.add-todo button {
+    margin-left: 12px;
+    transition: all 0.2s ease;
+}
+
+.ant-btn-danger {
+    background-color: #ff4d4f !important;
+    border-color: #ff4d4f !important;
+}
+
+.ant-btn-danger:hover {
+    background-color: #f5222d !important;
+}
+
+
+.ant-btn-primary:not(.ant-btn-danger):hover {
+    background-color: #096dd9 !important;
+}
+
+.ant-btn-text {
+    color: #1890ff !important;
+}
+
+.ant-btn-text:hover {
+    color: #096dd9 !important;
+    background-color: #e6f7ff !important;
+}
+
+/* 添加Todo区域 */
+.add-todo {
+    display: flex;
+    justify-content: center;
+    margin: 32px auto 20px;
+    gap: 12px;
+    max-width: 800px;
+}
+
+.add-todo input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.add-todo input:focus {
+    outline: none;
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.add-todo button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* 提示文本样式 */
+.todo-hint,
+.todos-done p {
+    text-align: center;
+    color: #86909c;
+    margin: 32px 0;
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* 已完成Todo页面 */
+.todos-done {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-list {
+    list-style: none;
+    width: 100%;
+    max-width: 800px;
+}
+
+.todo-list .todo-item-container {
+    justify-content: center;
+}
+
+/* 关于页面 */
+.about {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.about h1 {
+    margin-bottom: 20px;
+}
+
+.about p {
+    color: #4e5969;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+/* 详情页样式 */
+.todo-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fafbfc;
+    border-radius: 8px;
+}
+
+/* 模态框样式优化 */
+.ant-modal {
+    border-radius: 8px !important;
+}
+
+.ant-modal-header {
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.ant-modal-title {
+    font-size: 18px !important;
+    color: #1f2329 !important;
+}
+
+.ant-modal-body {
+    padding: 24px !important;
+}
+
+.ant-input {
+    padding: 10px 14px !important;
+    font-size: 16px !important;
+    border-radius: 6px !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .content-container {
+        margin: 16px;
+        padding: 20px;
+    }
+
+    .todo-item-container {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px 16px;
+    }
+
+    .todo-item {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .add-todo {
+        flex-direction: column;
+        padding: 0 16px;
+    }
+
+    .add-todo button {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-item {
+        margin: 0 6px;
+    }
 }
