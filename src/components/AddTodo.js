@@ -1,5 +1,6 @@
 import {useState, useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import {mockApi} from "../apis/mockApi";
 
 export function AddTodo() {
     const [inputText, setInputText] = useState('');
@@ -7,10 +8,9 @@ export function AddTodo() {
 
     const handleAdd = () => {
         if (inputText.trim()) {
-            dispatch({
-                type: "ADD_TODO",
-                payload: {text: inputText}
-            });
+            mockApi.post("/todos", {text: inputText.trim(),done:false})
+                .then(res=>res.data)
+                .then(todo=>dispatch({type: "ADD_TODO",payload:todo}))
             setInputText(''); // 清空输入框
         }
     };
