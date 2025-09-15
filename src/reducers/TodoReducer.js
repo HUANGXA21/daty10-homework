@@ -1,7 +1,6 @@
 export function todoReducer(state, action) {
     switch (action.type) {
         case "TOGGLE_TODO":
-            /// copy
             const newState = [...state];
             const id = action.payload.id;
             return newState.map((value) => {
