@@ -6,8 +6,8 @@ export class TodoList extends Component {
     render() {
         return <>
             <h2 className={"todo-h2"}>Todo List</h2>
-            <TodoGroup/>
             <AddTodo/>
+            <TodoGroup/>
         </>;
     }
 }
