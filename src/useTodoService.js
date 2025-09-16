@@ -1,9 +1,9 @@
 import {mockApi} from "./apis/mockApi";
 
 export function useTodoService() {
-    const updateTodo = todo => mockApi.put("/todos/" + todo.id, {done: !todo.done});
+    const updateTodo = todo => mockApi.put("/todos/" + todo.id, {text:todo.text,done: !todo.done});
 
-    const updateTextTodo = todo => mockApi.put("/todos/" + todo.id, {text: todo.text});
+    const updateTextTodo = todo => mockApi.put("/todos/" + todo.id, {text: todo.text,done:todo.done});
 
     const deleteTodo = id => mockApi.delete("/todos/" + id);
 

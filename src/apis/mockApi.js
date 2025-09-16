@@ -2,11 +2,12 @@ import axios from "axios";
 import {message} from "antd";
 
 const mockApi = axios.create({
-    baseURL: "https://68c7ac8d5d8d9f5147328721.mockapi.io/",
+    //baseURL: "https://68c7ac8d5d8d9f5147328721.mockapi.io/",
+    baseURL: "http://localhost:8080/",
     headers: {'Content-Type': 'application/json'},
     timeout: 10_000
 })
-mockApi.interceptors.response.use(
+/*mockApi.interceptors.response.use(
     (response) => {
         return response;
     },
@@ -18,5 +19,5 @@ mockApi.interceptors.response.use(
         }
         return Promise.reject(error);
     }
-);
+);*/
 export {mockApi}
