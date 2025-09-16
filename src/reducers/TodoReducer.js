@@ -17,11 +17,11 @@ export function todoReducer(state, action) {
             })
         case "UPDATE_TEXT_TODO":
             const State = [...state];
-            const Id = action.payload.id;
+            const newId = action.payload.id;
             return State.map((value) => {
-                if (value.id === Id) {
+                if (value.id === newId) {
                     return {
-                        Id,
+                        ...value,
                         text: action.payload.text,
                     };
                 }
